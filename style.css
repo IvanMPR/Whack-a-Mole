@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background: #f4f4f4;
+}
+.clouds {
+  position: relative;
+  top: 5%;
+  left: 40%;
+}
+/* .cloud-1 {
+  animation: moveLeftRight 20s linear infinite;
+}
+.cloud-2 {
+  animation: moveRightLeft 20s linear infinite;
+} */
+svg {
+  width: 12vw;
+  height: 12vw;
+}
+
+.game-container {
+  width: 100%;
+  height: 60%;
+  background-color: azure;
+  position: relative;
+  /* cursor: url(img/crosshairs/red-dot-crosshair-smallest.png), pointer; */
+  cursor: url(img/crosshairs/red-dot-crosshair-smallest-32x32.png) 16 16, auto;
+}
+.target-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(img/other/x-mark.png) no-repeat center center/cover;
+  /* border: 1px solid #999; */
+  border-radius: 50%;
+
+  /* animation: moveLeftRight 2s linear alternate-reverse forwards infinite; */
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.center-left {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.center-right {
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+.top-left {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+.bottom-left {
+  position: absolute;
+  top: 75%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+.top-right {
+  position: absolute;
+  top: 25%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+}
+.bottom-right {
+  position: absolute;
+  top: 75%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes moveLeftRight {
+  0% {
+    transform: translateX(-200px);
+  }
+  50% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveRightLeft {
+  0% {
+    transform: translateX(200px);
+  }
+  50% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

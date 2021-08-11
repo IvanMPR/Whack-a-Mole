@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whack a Mole</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="clouds">
+        <img src="img/other/clouds.png" alt="cloud" class="cloud-1" />
+        <img src="img/other/clouds.png" alt="cloud" class="cloud-2" />
+      </div>
+      <div class="target-container center">
+        <div class="svg-wrapper">
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="800px"
+            height="800px"
+            viewBox="0 0 800 800"
+            enable-background="new 0 0 800 800"
+            xml:space="preserve"
+          >
+            <g>
+              <radialGradient
+                id="circle-1_1_"
+                cx="400"
+                cy="400"
+                r="381.2451"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <path
+                id="circle-1"
+                fill="url(#circle-1_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,781.245
+       c-101.834,0-197.573-39.656-269.581-111.664C58.412,597.572,18.755,501.834,18.755,400s39.656-197.573,111.664-269.581
+       C202.427,58.412,298.166,18.755,400,18.755s197.572,39.656,269.581,111.664C741.589,202.427,781.245,298.166,781.245,400
+       s-39.656,197.572-111.664,269.581C597.572,741.589,501.834,781.245,400,781.245z"
+              />
+              <radialGradient
+                id="circle-2_1_"
+                cx="400"
+                cy="400"
+                r="344.3496"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <circle
+                id="circle-2"
+                fill="url(#circle-2_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                cx="400"
+                cy="400"
+                r="344.35"
+              />
+              <path
+                id="circle-3"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,707.455c-82.124,0-159.333-31.981-217.403-90.052
+       C124.525,559.333,92.544,482.124,92.544,400s31.981-159.333,90.052-217.403C240.667,124.525,317.876,92.544,400,92.544
+       s159.333,31.981,217.403,90.052c58.07,58.07,90.052,135.279,90.052,217.403s-31.981,159.333-90.052,217.403
+       S482.124,707.455,400,707.455z"
+              />
+              <path
+                id="circle-4"
+                stroke="#FFFFFF"
+                stroke-miterlimit="10"
+                d="M400,670.561c-72.269,0-140.212-28.143-191.315-79.245
+       C157.583,540.213,129.439,472.271,129.439,400c0-72.27,28.144-140.213,79.245-191.315C259.787,157.583,327.73,129.439,400,129.439
+       c72.271,0,140.213,28.144,191.315,79.245c51.103,51.103,79.245,119.046,79.245,191.315c0,72.269-28.143,140.213-79.245,191.315
+       S472.269,670.561,400,670.561z"
+              />
+              <radialGradient
+                id="circle-5_1_"
+                cx="400"
+                cy="400"
+                r="233.666"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-5"
+                fill="url(#circle-5_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,633.666
+       c-62.414,0-121.092-24.306-165.226-68.438c-44.134-44.135-68.44-102.813-68.44-165.228c0-62.414,24.305-121.092,68.439-165.226
+       c44.134-44.134,102.813-68.44,165.227-68.44c62.413,0,121.093,24.306,165.228,68.439C609.36,278.907,633.666,337.586,633.666,400
+       c0,62.415-24.306,121.093-68.438,165.228C521.093,609.36,462.415,633.666,400,633.666z"
+              />
+              <radialGradient
+                id="circle-6_1_"
+                cx="400"
+                cy="400"
+                r="196.7715"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-6"
+                fill="url(#circle-6_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,596.771
+       c-52.559,0-101.972-20.468-139.138-57.632c-37.166-37.167-57.633-86.58-57.633-139.14c0-52.559,20.468-101.973,57.633-139.137
+       c37.166-37.167,86.58-57.634,139.139-57.634c52.56,0,101.973,20.468,139.14,57.633c37.164,37.166,57.632,86.579,57.632,139.138
+       c0,52.56-20.468,101.973-57.634,139.14C501.973,576.304,452.56,596.771,400,596.771z"
+              />
+              <radialGradient
+                id="circle-7_1_"
+                cx="400"
+                cy="400"
+                r="159.877"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-7"
+                fill="url(#circle-7_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,559.877
+       c-42.704,0-82.853-16.63-113.05-46.827c-30.197-30.196-46.827-70.346-46.827-113.05s16.63-82.852,46.827-113.049
+       c30.197-30.198,70.345-46.828,113.05-46.828c42.704,0,82.854,16.63,113.051,46.828c30.196,30.197,46.826,70.345,46.826,113.049
+       c0,42.705-16.63,82.854-46.827,113.051C482.854,543.247,442.705,559.877,400,559.877z"
+              />
+              <radialGradient
+                id="circle-8_1_"
+                cx="400"
+                cy="400"
+                r="122.9824"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-8"
+                fill="url(#circle-8_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,522.982
+       c-32.849,0-63.733-12.793-86.962-36.021c-23.228-23.228-36.02-54.111-36.02-86.961c0-32.849,12.792-63.732,36.021-86.96
+       c23.228-23.23,54.112-36.022,86.961-36.022s63.733,12.792,86.963,36.021c23.228,23.228,36.02,54.111,36.02,86.96
+       c0,32.85-12.793,63.733-36.021,86.963C463.733,510.19,432.85,522.982,400,522.982z"
+              />
+              <radialGradient
+                id="circle-9_1_"
+                cx="400"
+                cy="400"
+                r="86.0879"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ffff00" />
+                <stop offset="0.4428" style="stop-color: #fffd01" />
+                <stop offset="0.6024" style="stop-color: #fef602" />
+                <stop offset="0.716" style="stop-color: #fdeb06" />
+                <stop offset="0.808" style="stop-color: #fcda0a" />
+                <stop offset="0.8867" style="stop-color: #fbc410" />
+                <stop offset="0.9551" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-9"
+                fill="url(#circle-9_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,486.088
+       c-22.994,0-44.613-8.955-60.874-25.217c-16.259-16.258-25.213-37.877-25.213-60.871s8.955-44.612,25.214-60.872
+       c16.26-16.261,37.878-25.216,60.873-25.216c22.994,0,44.613,8.955,60.875,25.215c16.258,16.259,25.213,37.877,25.213,60.872
+       c0,22.994-8.955,44.613-25.217,60.875C444.613,477.133,422.995,486.088,400,486.088z"
+              />
+              <radialGradient
+                id="circle-10_1_"
+                cx="400"
+                cy="400"
+                r="49.1934"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.4483" style="stop-color: #ffff00" />
+                <stop offset="0.6926" style="stop-color: #fffd01" />
+                <stop offset="0.7806" style="stop-color: #fef602" />
+                <stop offset="0.8433" style="stop-color: #fdeb06" />
+                <stop offset="0.894" style="stop-color: #fcda0a" />
+                <stop offset="0.9375" style="stop-color: #fbc410" />
+                <stop offset="0.9753" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-10"
+                fill="url(#circle-10_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,449.193
+       c-13.14,0-25.493-5.118-34.785-14.41c-9.292-9.291-14.408-21.644-14.408-34.783s5.117-25.492,14.408-34.783
+       c9.293-9.292,21.646-14.41,34.785-14.41s25.493,5.118,34.787,14.41c9.289,9.29,14.406,21.643,14.406,34.783
+       s-5.118,25.493-14.41,34.787C425.492,444.076,413.14,449.193,400,449.193z"
+              />
+              <path
+                id="circle-green-10"
+                fill="#00FF00"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,422.548
+       c-6.109,0-11.623-2.283-15.944-6.605c-4.321-4.32-6.604-9.832-6.604-15.942c0-6.108,2.283-11.621,6.603-15.939
+       c4.323-4.324,9.836-6.608,15.945-6.608c6.11,0,11.626,2.285,15.948,6.609c4.318,4.316,6.6,9.829,6.6,15.938
+       c0,6.11-2.286,11.626-6.61,15.95C411.623,420.265,406.11,422.548,400,422.548z"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="target-container center-right">
+        <div class="svg-wrapper">
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="800px"
+            height="800px"
+            viewBox="0 0 800 800"
+            enable-background="new 0 0 800 800"
+            xml:space="preserve"
+          >
+            <g>
+              <radialGradient
+                id="circle-1_1_"
+                cx="400"
+                cy="400"
+                r="381.2451"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <path
+                id="circle-1"
+                fill="url(#circle-1_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,781.245
+         c-101.834,0-197.573-39.656-269.581-111.664C58.412,597.572,18.755,501.834,18.755,400s39.656-197.573,111.664-269.581
+         C202.427,58.412,298.166,18.755,400,18.755s197.572,39.656,269.581,111.664C741.589,202.427,781.245,298.166,781.245,400
+         s-39.656,197.572-111.664,269.581C597.572,741.589,501.834,781.245,400,781.245z"
+              />
+              <radialGradient
+                id="circle-2_1_"
+                cx="400"
+                cy="400"
+                r="344.3496"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <circle
+                id="circle-2"
+                fill="url(#circle-2_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                cx="400"
+                cy="400"
+                r="344.35"
+              />
+              <path
+                id="circle-3"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,707.455c-82.124,0-159.333-31.981-217.403-90.052
+         C124.525,559.333,92.544,482.124,92.544,400s31.981-159.333,90.052-217.403C240.667,124.525,317.876,92.544,400,92.544
+         s159.333,31.981,217.403,90.052c58.07,58.07,90.052,135.279,90.052,217.403s-31.981,159.333-90.052,217.403
+         S482.124,707.455,400,707.455z"
+              />
+              <path
+                id="circle-4"
+                stroke="#FFFFFF"
+                stroke-miterlimit="10"
+                d="M400,670.561c-72.269,0-140.212-28.143-191.315-79.245
+         C157.583,540.213,129.439,472.271,129.439,400c0-72.27,28.144-140.213,79.245-191.315C259.787,157.583,327.73,129.439,400,129.439
+         c72.271,0,140.213,28.144,191.315,79.245c51.103,51.103,79.245,119.046,79.245,191.315c0,72.269-28.143,140.213-79.245,191.315
+         S472.269,670.561,400,670.561z"
+              />
+              <radialGradient
+                id="circle-5_1_"
+                cx="400"
+                cy="400"
+                r="233.666"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-5"
+                fill="url(#circle-5_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,633.666
+         c-62.414,0-121.092-24.306-165.226-68.438c-44.134-44.135-68.44-102.813-68.44-165.228c0-62.414,24.305-121.092,68.439-165.226
+         c44.134-44.134,102.813-68.44,165.227-68.44c62.413,0,121.093,24.306,165.228,68.439C609.36,278.907,633.666,337.586,633.666,400
+         c0,62.415-24.306,121.093-68.438,165.228C521.093,609.36,462.415,633.666,400,633.666z"
+              />
+              <radialGradient
+                id="circle-6_1_"
+                cx="400"
+                cy="400"
+                r="196.7715"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-6"
+                fill="url(#circle-6_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,596.771
+         c-52.559,0-101.972-20.468-139.138-57.632c-37.166-37.167-57.633-86.58-57.633-139.14c0-52.559,20.468-101.973,57.633-139.137
+         c37.166-37.167,86.58-57.634,139.139-57.634c52.56,0,101.973,20.468,139.14,57.633c37.164,37.166,57.632,86.579,57.632,139.138
+         c0,52.56-20.468,101.973-57.634,139.14C501.973,576.304,452.56,596.771,400,596.771z"
+              />
+              <radialGradient
+                id="circle-7_1_"
+                cx="400"
+                cy="400"
+                r="159.877"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-7"
+                fill="url(#circle-7_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,559.877
+         c-42.704,0-82.853-16.63-113.05-46.827c-30.197-30.196-46.827-70.346-46.827-113.05s16.63-82.852,46.827-113.049
+         c30.197-30.198,70.345-46.828,113.05-46.828c42.704,0,82.854,16.63,113.051,46.828c30.196,30.197,46.826,70.345,46.826,113.049
+         c0,42.705-16.63,82.854-46.827,113.051C482.854,543.247,442.705,559.877,400,559.877z"
+              />
+              <radialGradient
+                id="circle-8_1_"
+                cx="400"
+                cy="400"
+                r="122.9824"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-8"
+                fill="url(#circle-8_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,522.982
+         c-32.849,0-63.733-12.793-86.962-36.021c-23.228-23.228-36.02-54.111-36.02-86.961c0-32.849,12.792-63.732,36.021-86.96
+         c23.228-23.23,54.112-36.022,86.961-36.022s63.733,12.792,86.963,36.021c23.228,23.228,36.02,54.111,36.02,86.96
+         c0,32.85-12.793,63.733-36.021,86.963C463.733,510.19,432.85,522.982,400,522.982z"
+              />
+              <radialGradient
+                id="circle-9_1_"
+                cx="400"
+                cy="400"
+                r="86.0879"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ffff00" />
+                <stop offset="0.4428" style="stop-color: #fffd01" />
+                <stop offset="0.6024" style="stop-color: #fef602" />
+                <stop offset="0.716" style="stop-color: #fdeb06" />
+                <stop offset="0.808" style="stop-color: #fcda0a" />
+                <stop offset="0.8867" style="stop-color: #fbc410" />
+                <stop offset="0.9551" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-9"
+                fill="url(#circle-9_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,486.088
+         c-22.994,0-44.613-8.955-60.874-25.217c-16.259-16.258-25.213-37.877-25.213-60.871s8.955-44.612,25.214-60.872
+         c16.26-16.261,37.878-25.216,60.873-25.216c22.994,0,44.613,8.955,60.875,25.215c16.258,16.259,25.213,37.877,25.213,60.872
+         c0,22.994-8.955,44.613-25.217,60.875C444.613,477.133,422.995,486.088,400,486.088z"
+              />
+              <radialGradient
+                id="circle-10_1_"
+                cx="400"
+                cy="400"
+                r="49.1934"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.4483" style="stop-color: #ffff00" />
+                <stop offset="0.6926" style="stop-color: #fffd01" />
+                <stop offset="0.7806" style="stop-color: #fef602" />
+                <stop offset="0.8433" style="stop-color: #fdeb06" />
+                <stop offset="0.894" style="stop-color: #fcda0a" />
+                <stop offset="0.9375" style="stop-color: #fbc410" />
+                <stop offset="0.9753" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-10"
+                fill="url(#circle-10_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,449.193
+         c-13.14,0-25.493-5.118-34.785-14.41c-9.292-9.291-14.408-21.644-14.408-34.783s5.117-25.492,14.408-34.783
+         c9.293-9.292,21.646-14.41,34.785-14.41s25.493,5.118,34.787,14.41c9.289,9.29,14.406,21.643,14.406,34.783
+         s-5.118,25.493-14.41,34.787C425.492,444.076,413.14,449.193,400,449.193z"
+              />
+              <path
+                id="circle-green-10"
+                fill="#00FF00"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,422.548
+         c-6.109,0-11.623-2.283-15.944-6.605c-4.321-4.32-6.604-9.832-6.604-15.942c0-6.108,2.283-11.621,6.603-15.939
+         c4.323-4.324,9.836-6.608,15.945-6.608c6.11,0,11.626,2.285,15.948,6.609c4.318,4.316,6.6,9.829,6.6,15.938
+         c0,6.11-2.286,11.626-6.61,15.95C411.623,420.265,406.11,422.548,400,422.548z"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="target-container center-left">
+        <div class="svg-wrapper">
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="800px"
+            height="800px"
+            viewBox="0 0 800 800"
+            enable-background="new 0 0 800 800"
+            xml:space="preserve"
+          >
+            <g>
+              <radialGradient
+                id="circle-1_1_"
+                cx="400"
+                cy="400"
+                r="381.2451"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <path
+                id="circle-1"
+                fill="url(#circle-1_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,781.245
+         c-101.834,0-197.573-39.656-269.581-111.664C58.412,597.572,18.755,501.834,18.755,400s39.656-197.573,111.664-269.581
+         C202.427,58.412,298.166,18.755,400,18.755s197.572,39.656,269.581,111.664C741.589,202.427,781.245,298.166,781.245,400
+         s-39.656,197.572-111.664,269.581C597.572,741.589,501.834,781.245,400,781.245z"
+              />
+              <radialGradient
+                id="circle-2_1_"
+                cx="400"
+                cy="400"
+                r="344.3496"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <circle
+                id="circle-2"
+                fill="url(#circle-2_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                cx="400"
+                cy="400"
+                r="344.35"
+              />
+              <path
+                id="circle-3"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,707.455c-82.124,0-159.333-31.981-217.403-90.052
+         C124.525,559.333,92.544,482.124,92.544,400s31.981-159.333,90.052-217.403C240.667,124.525,317.876,92.544,400,92.544
+         s159.333,31.981,217.403,90.052c58.07,58.07,90.052,135.279,90.052,217.403s-31.981,159.333-90.052,217.403
+         S482.124,707.455,400,707.455z"
+              />
+              <path
+                id="circle-4"
+                stroke="#FFFFFF"
+                stroke-miterlimit="10"
+                d="M400,670.561c-72.269,0-140.212-28.143-191.315-79.245
+         C157.583,540.213,129.439,472.271,129.439,400c0-72.27,28.144-140.213,79.245-191.315C259.787,157.583,327.73,129.439,400,129.439
+         c72.271,0,140.213,28.144,191.315,79.245c51.103,51.103,79.245,119.046,79.245,191.315c0,72.269-28.143,140.213-79.245,191.315
+         S472.269,670.561,400,670.561z"
+              />
+              <radialGradient
+                id="circle-5_1_"
+                cx="400"
+                cy="400"
+                r="233.666"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-5"
+                fill="url(#circle-5_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,633.666
+         c-62.414,0-121.092-24.306-165.226-68.438c-44.134-44.135-68.44-102.813-68.44-165.228c0-62.414,24.305-121.092,68.439-165.226
+         c44.134-44.134,102.813-68.44,165.227-68.44c62.413,0,121.093,24.306,165.228,68.439C609.36,278.907,633.666,337.586,633.666,400
+         c0,62.415-24.306,121.093-68.438,165.228C521.093,609.36,462.415,633.666,400,633.666z"
+              />
+              <radialGradient
+                id="circle-6_1_"
+                cx="400"
+                cy="400"
+                r="196.7715"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-6"
+                fill="url(#circle-6_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,596.771
+         c-52.559,0-101.972-20.468-139.138-57.632c-37.166-37.167-57.633-86.58-57.633-139.14c0-52.559,20.468-101.973,57.633-139.137
+         c37.166-37.167,86.58-57.634,139.139-57.634c52.56,0,101.973,20.468,139.14,57.633c37.164,37.166,57.632,86.579,57.632,139.138
+         c0,52.56-20.468,101.973-57.634,139.14C501.973,576.304,452.56,596.771,400,596.771z"
+              />
+              <radialGradient
+                id="circle-7_1_"
+                cx="400"
+                cy="400"
+                r="159.877"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-7"
+                fill="url(#circle-7_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,559.877
+         c-42.704,0-82.853-16.63-113.05-46.827c-30.197-30.196-46.827-70.346-46.827-113.05s16.63-82.852,46.827-113.049
+         c30.197-30.198,70.345-46.828,113.05-46.828c42.704,0,82.854,16.63,113.051,46.828c30.196,30.197,46.826,70.345,46.826,113.049
+         c0,42.705-16.63,82.854-46.827,113.051C482.854,543.247,442.705,559.877,400,559.877z"
+              />
+              <radialGradient
+                id="circle-8_1_"
+                cx="400"
+                cy="400"
+                r="122.9824"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-8"
+                fill="url(#circle-8_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,522.982
+         c-32.849,0-63.733-12.793-86.962-36.021c-23.228-23.228-36.02-54.111-36.02-86.961c0-32.849,12.792-63.732,36.021-86.96
+         c23.228-23.23,54.112-36.022,86.961-36.022s63.733,12.792,86.963,36.021c23.228,23.228,36.02,54.111,36.02,86.96
+         c0,32.85-12.793,63.733-36.021,86.963C463.733,510.19,432.85,522.982,400,522.982z"
+              />
+              <radialGradient
+                id="circle-9_1_"
+                cx="400"
+                cy="400"
+                r="86.0879"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ffff00" />
+                <stop offset="0.4428" style="stop-color: #fffd01" />
+                <stop offset="0.6024" style="stop-color: #fef602" />
+                <stop offset="0.716" style="stop-color: #fdeb06" />
+                <stop offset="0.808" style="stop-color: #fcda0a" />
+                <stop offset="0.8867" style="stop-color: #fbc410" />
+                <stop offset="0.9551" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-9"
+                fill="url(#circle-9_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,486.088
+         c-22.994,0-44.613-8.955-60.874-25.217c-16.259-16.258-25.213-37.877-25.213-60.871s8.955-44.612,25.214-60.872
+         c16.26-16.261,37.878-25.216,60.873-25.216c22.994,0,44.613,8.955,60.875,25.215c16.258,16.259,25.213,37.877,25.213,60.872
+         c0,22.994-8.955,44.613-25.217,60.875C444.613,477.133,422.995,486.088,400,486.088z"
+              />
+              <radialGradient
+                id="circle-10_1_"
+                cx="400"
+                cy="400"
+                r="49.1934"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.4483" style="stop-color: #ffff00" />
+                <stop offset="0.6926" style="stop-color: #fffd01" />
+                <stop offset="0.7806" style="stop-color: #fef602" />
+                <stop offset="0.8433" style="stop-color: #fdeb06" />
+                <stop offset="0.894" style="stop-color: #fcda0a" />
+                <stop offset="0.9375" style="stop-color: #fbc410" />
+                <stop offset="0.9753" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-10"
+                fill="url(#circle-10_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,449.193
+         c-13.14,0-25.493-5.118-34.785-14.41c-9.292-9.291-14.408-21.644-14.408-34.783s5.117-25.492,14.408-34.783
+         c9.293-9.292,21.646-14.41,34.785-14.41s25.493,5.118,34.787,14.41c9.289,9.29,14.406,21.643,14.406,34.783
+         s-5.118,25.493-14.41,34.787C425.492,444.076,413.14,449.193,400,449.193z"
+              />
+              <path
+                id="circle-green-10"
+                fill="#00FF00"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,422.548
+         c-6.109,0-11.623-2.283-15.944-6.605c-4.321-4.32-6.604-9.832-6.604-15.942c0-6.108,2.283-11.621,6.603-15.939
+         c4.323-4.324,9.836-6.608,15.945-6.608c6.11,0,11.626,2.285,15.948,6.609c4.318,4.316,6.6,9.829,6.6,15.938
+         c0,6.11-2.286,11.626-6.61,15.95C411.623,420.265,406.11,422.548,400,422.548z"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="target-container top-left">
+        <div class="svg-wrapper">
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="800px"
+            height="800px"
+            viewBox="0 0 800 800"
+            enable-background="new 0 0 800 800"
+            xml:space="preserve"
+          >
+            <g>
+              <radialGradient
+                id="circle-1_1_"
+                cx="400"
+                cy="400"
+                r="381.2451"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <path
+                id="circle-1"
+                fill="url(#circle-1_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,781.245
+         c-101.834,0-197.573-39.656-269.581-111.664C58.412,597.572,18.755,501.834,18.755,400s39.656-197.573,111.664-269.581
+         C202.427,58.412,298.166,18.755,400,18.755s197.572,39.656,269.581,111.664C741.589,202.427,781.245,298.166,781.245,400
+         s-39.656,197.572-111.664,269.581C597.572,741.589,501.834,781.245,400,781.245z"
+              />
+              <radialGradient
+                id="circle-2_1_"
+                cx="400"
+                cy="400"
+                r="344.3496"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <circle
+                id="circle-2"
+                fill="url(#circle-2_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                cx="400"
+                cy="400"
+                r="344.35"
+              />
+              <path
+                id="circle-3"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,707.455c-82.124,0-159.333-31.981-217.403-90.052
+         C124.525,559.333,92.544,482.124,92.544,400s31.981-159.333,90.052-217.403C240.667,124.525,317.876,92.544,400,92.544
+         s159.333,31.981,217.403,90.052c58.07,58.07,90.052,135.279,90.052,217.403s-31.981,159.333-90.052,217.403
+         S482.124,707.455,400,707.455z"
+              />
+              <path
+                id="circle-4"
+                stroke="#FFFFFF"
+                stroke-miterlimit="10"
+                d="M400,670.561c-72.269,0-140.212-28.143-191.315-79.245
+         C157.583,540.213,129.439,472.271,129.439,400c0-72.27,28.144-140.213,79.245-191.315C259.787,157.583,327.73,129.439,400,129.439
+         c72.271,0,140.213,28.144,191.315,79.245c51.103,51.103,79.245,119.046,79.245,191.315c0,72.269-28.143,140.213-79.245,191.315
+         S472.269,670.561,400,670.561z"
+              />
+              <radialGradient
+                id="circle-5_1_"
+                cx="400"
+                cy="400"
+                r="233.666"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-5"
+                fill="url(#circle-5_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,633.666
+         c-62.414,0-121.092-24.306-165.226-68.438c-44.134-44.135-68.44-102.813-68.44-165.228c0-62.414,24.305-121.092,68.439-165.226
+         c44.134-44.134,102.813-68.44,165.227-68.44c62.413,0,121.093,24.306,165.228,68.439C609.36,278.907,633.666,337.586,633.666,400
+         c0,62.415-24.306,121.093-68.438,165.228C521.093,609.36,462.415,633.666,400,633.666z"
+              />
+              <radialGradient
+                id="circle-6_1_"
+                cx="400"
+                cy="400"
+                r="196.7715"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-6"
+                fill="url(#circle-6_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,596.771
+         c-52.559,0-101.972-20.468-139.138-57.632c-37.166-37.167-57.633-86.58-57.633-139.14c0-52.559,20.468-101.973,57.633-139.137
+         c37.166-37.167,86.58-57.634,139.139-57.634c52.56,0,101.973,20.468,139.14,57.633c37.164,37.166,57.632,86.579,57.632,139.138
+         c0,52.56-20.468,101.973-57.634,139.14C501.973,576.304,452.56,596.771,400,596.771z"
+              />
+              <radialGradient
+                id="circle-7_1_"
+                cx="400"
+                cy="400"
+                r="159.877"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-7"
+                fill="url(#circle-7_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,559.877
+         c-42.704,0-82.853-16.63-113.05-46.827c-30.197-30.196-46.827-70.346-46.827-113.05s16.63-82.852,46.827-113.049
+         c30.197-30.198,70.345-46.828,113.05-46.828c42.704,0,82.854,16.63,113.051,46.828c30.196,30.197,46.826,70.345,46.826,113.049
+         c0,42.705-16.63,82.854-46.827,113.051C482.854,543.247,442.705,559.877,400,559.877z"
+              />
+              <radialGradient
+                id="circle-8_1_"
+                cx="400"
+                cy="400"
+                r="122.9824"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-8"
+                fill="url(#circle-8_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,522.982
+         c-32.849,0-63.733-12.793-86.962-36.021c-23.228-23.228-36.02-54.111-36.02-86.961c0-32.849,12.792-63.732,36.021-86.96
+         c23.228-23.23,54.112-36.022,86.961-36.022s63.733,12.792,86.963,36.021c23.228,23.228,36.02,54.111,36.02,86.96
+         c0,32.85-12.793,63.733-36.021,86.963C463.733,510.19,432.85,522.982,400,522.982z"
+              />
+              <radialGradient
+                id="circle-9_1_"
+                cx="400"
+                cy="400"
+                r="86.0879"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ffff00" />
+                <stop offset="0.4428" style="stop-color: #fffd01" />
+                <stop offset="0.6024" style="stop-color: #fef602" />
+                <stop offset="0.716" style="stop-color: #fdeb06" />
+                <stop offset="0.808" style="stop-color: #fcda0a" />
+                <stop offset="0.8867" style="stop-color: #fbc410" />
+                <stop offset="0.9551" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-9"
+                fill="url(#circle-9_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,486.088
+         c-22.994,0-44.613-8.955-60.874-25.217c-16.259-16.258-25.213-37.877-25.213-60.871s8.955-44.612,25.214-60.872
+         c16.26-16.261,37.878-25.216,60.873-25.216c22.994,0,44.613,8.955,60.875,25.215c16.258,16.259,25.213,37.877,25.213,60.872
+         c0,22.994-8.955,44.613-25.217,60.875C444.613,477.133,422.995,486.088,400,486.088z"
+              />
+              <radialGradient
+                id="circle-10_1_"
+                cx="400"
+                cy="400"
+                r="49.1934"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.4483" style="stop-color: #ffff00" />
+                <stop offset="0.6926" style="stop-color: #fffd01" />
+                <stop offset="0.7806" style="stop-color: #fef602" />
+                <stop offset="0.8433" style="stop-color: #fdeb06" />
+                <stop offset="0.894" style="stop-color: #fcda0a" />
+                <stop offset="0.9375" style="stop-color: #fbc410" />
+                <stop offset="0.9753" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-10"
+                fill="url(#circle-10_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,449.193
+         c-13.14,0-25.493-5.118-34.785-14.41c-9.292-9.291-14.408-21.644-14.408-34.783s5.117-25.492,14.408-34.783
+         c9.293-9.292,21.646-14.41,34.785-14.41s25.493,5.118,34.787,14.41c9.289,9.29,14.406,21.643,14.406,34.783
+         s-5.118,25.493-14.41,34.787C425.492,444.076,413.14,449.193,400,449.193z"
+              />
+              <path
+                id="circle-green-10"
+                fill="#00FF00"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,422.548
+         c-6.109,0-11.623-2.283-15.944-6.605c-4.321-4.32-6.604-9.832-6.604-15.942c0-6.108,2.283-11.621,6.603-15.939
+         c4.323-4.324,9.836-6.608,15.945-6.608c6.11,0,11.626,2.285,15.948,6.609c4.318,4.316,6.6,9.829,6.6,15.938
+         c0,6.11-2.286,11.626-6.61,15.95C411.623,420.265,406.11,422.548,400,422.548z"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="target-container bottom-left">
+        <div class="svg-wrapper">
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="800px"
+            height="800px"
+            viewBox="0 0 800 800"
+            enable-background="new 0 0 800 800"
+            xml:space="preserve"
+          >
+            <g>
+              <radialGradient
+                id="circle-1_1_"
+                cx="400"
+                cy="400"
+                r="381.2451"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <path
+                id="circle-1"
+                fill="url(#circle-1_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,781.245
+         c-101.834,0-197.573-39.656-269.581-111.664C58.412,597.572,18.755,501.834,18.755,400s39.656-197.573,111.664-269.581
+         C202.427,58.412,298.166,18.755,400,18.755s197.572,39.656,269.581,111.664C741.589,202.427,781.245,298.166,781.245,400
+         s-39.656,197.572-111.664,269.581C597.572,741.589,501.834,781.245,400,781.245z"
+              />
+              <radialGradient
+                id="circle-2_1_"
+                cx="400"
+                cy="400"
+                r="344.3496"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <circle
+                id="circle-2"
+                fill="url(#circle-2_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                cx="400"
+                cy="400"
+                r="344.35"
+              />
+              <path
+                id="circle-3"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,707.455c-82.124,0-159.333-31.981-217.403-90.052
+         C124.525,559.333,92.544,482.124,92.544,400s31.981-159.333,90.052-217.403C240.667,124.525,317.876,92.544,400,92.544
+         s159.333,31.981,217.403,90.052c58.07,58.07,90.052,135.279,90.052,217.403s-31.981,159.333-90.052,217.403
+         S482.124,707.455,400,707.455z"
+              />
+              <path
+                id="circle-4"
+                stroke="#FFFFFF"
+                stroke-miterlimit="10"
+                d="M400,670.561c-72.269,0-140.212-28.143-191.315-79.245
+         C157.583,540.213,129.439,472.271,129.439,400c0-72.27,28.144-140.213,79.245-191.315C259.787,157.583,327.73,129.439,400,129.439
+         c72.271,0,140.213,28.144,191.315,79.245c51.103,51.103,79.245,119.046,79.245,191.315c0,72.269-28.143,140.213-79.245,191.315
+         S472.269,670.561,400,670.561z"
+              />
+              <radialGradient
+                id="circle-5_1_"
+                cx="400"
+                cy="400"
+                r="233.666"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-5"
+                fill="url(#circle-5_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,633.666
+         c-62.414,0-121.092-24.306-165.226-68.438c-44.134-44.135-68.44-102.813-68.44-165.228c0-62.414,24.305-121.092,68.439-165.226
+         c44.134-44.134,102.813-68.44,165.227-68.44c62.413,0,121.093,24.306,165.228,68.439C609.36,278.907,633.666,337.586,633.666,400
+         c0,62.415-24.306,121.093-68.438,165.228C521.093,609.36,462.415,633.666,400,633.666z"
+              />
+              <radialGradient
+                id="circle-6_1_"
+                cx="400"
+                cy="400"
+                r="196.7715"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-6"
+                fill="url(#circle-6_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,596.771
+         c-52.559,0-101.972-20.468-139.138-57.632c-37.166-37.167-57.633-86.58-57.633-139.14c0-52.559,20.468-101.973,57.633-139.137
+         c37.166-37.167,86.58-57.634,139.139-57.634c52.56,0,101.973,20.468,139.14,57.633c37.164,37.166,57.632,86.579,57.632,139.138
+         c0,52.56-20.468,101.973-57.634,139.14C501.973,576.304,452.56,596.771,400,596.771z"
+              />
+              <radialGradient
+                id="circle-7_1_"
+                cx="400"
+                cy="400"
+                r="159.877"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-7"
+                fill="url(#circle-7_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,559.877
+         c-42.704,0-82.853-16.63-113.05-46.827c-30.197-30.196-46.827-70.346-46.827-113.05s16.63-82.852,46.827-113.049
+         c30.197-30.198,70.345-46.828,113.05-46.828c42.704,0,82.854,16.63,113.051,46.828c30.196,30.197,46.826,70.345,46.826,113.049
+         c0,42.705-16.63,82.854-46.827,113.051C482.854,543.247,442.705,559.877,400,559.877z"
+              />
+              <radialGradient
+                id="circle-8_1_"
+                cx="400"
+                cy="400"
+                r="122.9824"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-8"
+                fill="url(#circle-8_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,522.982
+         c-32.849,0-63.733-12.793-86.962-36.021c-23.228-23.228-36.02-54.111-36.02-86.961c0-32.849,12.792-63.732,36.021-86.96
+         c23.228-23.23,54.112-36.022,86.961-36.022s63.733,12.792,86.963,36.021c23.228,23.228,36.02,54.111,36.02,86.96
+         c0,32.85-12.793,63.733-36.021,86.963C463.733,510.19,432.85,522.982,400,522.982z"
+              />
+              <radialGradient
+                id="circle-9_1_"
+                cx="400"
+                cy="400"
+                r="86.0879"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ffff00" />
+                <stop offset="0.4428" style="stop-color: #fffd01" />
+                <stop offset="0.6024" style="stop-color: #fef602" />
+                <stop offset="0.716" style="stop-color: #fdeb06" />
+                <stop offset="0.808" style="stop-color: #fcda0a" />
+                <stop offset="0.8867" style="stop-color: #fbc410" />
+                <stop offset="0.9551" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-9"
+                fill="url(#circle-9_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,486.088
+         c-22.994,0-44.613-8.955-60.874-25.217c-16.259-16.258-25.213-37.877-25.213-60.871s8.955-44.612,25.214-60.872
+         c16.26-16.261,37.878-25.216,60.873-25.216c22.994,0,44.613,8.955,60.875,25.215c16.258,16.259,25.213,37.877,25.213,60.872
+         c0,22.994-8.955,44.613-25.217,60.875C444.613,477.133,422.995,486.088,400,486.088z"
+              />
+              <radialGradient
+                id="circle-10_1_"
+                cx="400"
+                cy="400"
+                r="49.1934"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.4483" style="stop-color: #ffff00" />
+                <stop offset="0.6926" style="stop-color: #fffd01" />
+                <stop offset="0.7806" style="stop-color: #fef602" />
+                <stop offset="0.8433" style="stop-color: #fdeb06" />
+                <stop offset="0.894" style="stop-color: #fcda0a" />
+                <stop offset="0.9375" style="stop-color: #fbc410" />
+                <stop offset="0.9753" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-10"
+                fill="url(#circle-10_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,449.193
+         c-13.14,0-25.493-5.118-34.785-14.41c-9.292-9.291-14.408-21.644-14.408-34.783s5.117-25.492,14.408-34.783
+         c9.293-9.292,21.646-14.41,34.785-14.41s25.493,5.118,34.787,14.41c9.289,9.29,14.406,21.643,14.406,34.783
+         s-5.118,25.493-14.41,34.787C425.492,444.076,413.14,449.193,400,449.193z"
+              />
+              <path
+                id="circle-green-10"
+                fill="#00FF00"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,422.548
+         c-6.109,0-11.623-2.283-15.944-6.605c-4.321-4.32-6.604-9.832-6.604-15.942c0-6.108,2.283-11.621,6.603-15.939
+         c4.323-4.324,9.836-6.608,15.945-6.608c6.11,0,11.626,2.285,15.948,6.609c4.318,4.316,6.6,9.829,6.6,15.938
+         c0,6.11-2.286,11.626-6.61,15.95C411.623,420.265,406.11,422.548,400,422.548z"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="target-container top-right">
+        <div class="svg-wrapper">
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="800px"
+            height="800px"
+            viewBox="0 0 800 800"
+            enable-background="new 0 0 800 800"
+            xml:space="preserve"
+          >
+            <g>
+              <radialGradient
+                id="circle-1_1_"
+                cx="400"
+                cy="400"
+                r="381.2451"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <path
+                id="circle-1"
+                fill="url(#circle-1_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,781.245
+         c-101.834,0-197.573-39.656-269.581-111.664C58.412,597.572,18.755,501.834,18.755,400s39.656-197.573,111.664-269.581
+         C202.427,58.412,298.166,18.755,400,18.755s197.572,39.656,269.581,111.664C741.589,202.427,781.245,298.166,781.245,400
+         s-39.656,197.572-111.664,269.581C597.572,741.589,501.834,781.245,400,781.245z"
+              />
+              <radialGradient
+                id="circle-2_1_"
+                cx="400"
+                cy="400"
+                r="344.3496"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <circle
+                id="circle-2"
+                fill="url(#circle-2_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                cx="400"
+                cy="400"
+                r="344.35"
+              />
+              <path
+                id="circle-3"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,707.455c-82.124,0-159.333-31.981-217.403-90.052
+         C124.525,559.333,92.544,482.124,92.544,400s31.981-159.333,90.052-217.403C240.667,124.525,317.876,92.544,400,92.544
+         s159.333,31.981,217.403,90.052c58.07,58.07,90.052,135.279,90.052,217.403s-31.981,159.333-90.052,217.403
+         S482.124,707.455,400,707.455z"
+              />
+              <path
+                id="circle-4"
+                stroke="#FFFFFF"
+                stroke-miterlimit="10"
+                d="M400,670.561c-72.269,0-140.212-28.143-191.315-79.245
+         C157.583,540.213,129.439,472.271,129.439,400c0-72.27,28.144-140.213,79.245-191.315C259.787,157.583,327.73,129.439,400,129.439
+         c72.271,0,140.213,28.144,191.315,79.245c51.103,51.103,79.245,119.046,79.245,191.315c0,72.269-28.143,140.213-79.245,191.315
+         S472.269,670.561,400,670.561z"
+              />
+              <radialGradient
+                id="circle-5_1_"
+                cx="400"
+                cy="400"
+                r="233.666"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-5"
+                fill="url(#circle-5_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,633.666
+         c-62.414,0-121.092-24.306-165.226-68.438c-44.134-44.135-68.44-102.813-68.44-165.228c0-62.414,24.305-121.092,68.439-165.226
+         c44.134-44.134,102.813-68.44,165.227-68.44c62.413,0,121.093,24.306,165.228,68.439C609.36,278.907,633.666,337.586,633.666,400
+         c0,62.415-24.306,121.093-68.438,165.228C521.093,609.36,462.415,633.666,400,633.666z"
+              />
+              <radialGradient
+                id="circle-6_1_"
+                cx="400"
+                cy="400"
+                r="196.7715"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-6"
+                fill="url(#circle-6_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,596.771
+         c-52.559,0-101.972-20.468-139.138-57.632c-37.166-37.167-57.633-86.58-57.633-139.14c0-52.559,20.468-101.973,57.633-139.137
+         c37.166-37.167,86.58-57.634,139.139-57.634c52.56,0,101.973,20.468,139.14,57.633c37.164,37.166,57.632,86.579,57.632,139.138
+         c0,52.56-20.468,101.973-57.634,139.14C501.973,576.304,452.56,596.771,400,596.771z"
+              />
+              <radialGradient
+                id="circle-7_1_"
+                cx="400"
+                cy="400"
+                r="159.877"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-7"
+                fill="url(#circle-7_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,559.877
+         c-42.704,0-82.853-16.63-113.05-46.827c-30.197-30.196-46.827-70.346-46.827-113.05s16.63-82.852,46.827-113.049
+         c30.197-30.198,70.345-46.828,113.05-46.828c42.704,0,82.854,16.63,113.051,46.828c30.196,30.197,46.826,70.345,46.826,113.049
+         c0,42.705-16.63,82.854-46.827,113.051C482.854,543.247,442.705,559.877,400,559.877z"
+              />
+              <radialGradient
+                id="circle-8_1_"
+                cx="400"
+                cy="400"
+                r="122.9824"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-8"
+                fill="url(#circle-8_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,522.982
+         c-32.849,0-63.733-12.793-86.962-36.021c-23.228-23.228-36.02-54.111-36.02-86.961c0-32.849,12.792-63.732,36.021-86.96
+         c23.228-23.23,54.112-36.022,86.961-36.022s63.733,12.792,86.963,36.021c23.228,23.228,36.02,54.111,36.02,86.96
+         c0,32.85-12.793,63.733-36.021,86.963C463.733,510.19,432.85,522.982,400,522.982z"
+              />
+              <radialGradient
+                id="circle-9_1_"
+                cx="400"
+                cy="400"
+                r="86.0879"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ffff00" />
+                <stop offset="0.4428" style="stop-color: #fffd01" />
+                <stop offset="0.6024" style="stop-color: #fef602" />
+                <stop offset="0.716" style="stop-color: #fdeb06" />
+                <stop offset="0.808" style="stop-color: #fcda0a" />
+                <stop offset="0.8867" style="stop-color: #fbc410" />
+                <stop offset="0.9551" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-9"
+                fill="url(#circle-9_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,486.088
+         c-22.994,0-44.613-8.955-60.874-25.217c-16.259-16.258-25.213-37.877-25.213-60.871s8.955-44.612,25.214-60.872
+         c16.26-16.261,37.878-25.216,60.873-25.216c22.994,0,44.613,8.955,60.875,25.215c16.258,16.259,25.213,37.877,25.213,60.872
+         c0,22.994-8.955,44.613-25.217,60.875C444.613,477.133,422.995,486.088,400,486.088z"
+              />
+              <radialGradient
+                id="circle-10_1_"
+                cx="400"
+                cy="400"
+                r="49.1934"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.4483" style="stop-color: #ffff00" />
+                <stop offset="0.6926" style="stop-color: #fffd01" />
+                <stop offset="0.7806" style="stop-color: #fef602" />
+                <stop offset="0.8433" style="stop-color: #fdeb06" />
+                <stop offset="0.894" style="stop-color: #fcda0a" />
+                <stop offset="0.9375" style="stop-color: #fbc410" />
+                <stop offset="0.9753" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-10"
+                fill="url(#circle-10_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,449.193
+         c-13.14,0-25.493-5.118-34.785-14.41c-9.292-9.291-14.408-21.644-14.408-34.783s5.117-25.492,14.408-34.783
+         c9.293-9.292,21.646-14.41,34.785-14.41s25.493,5.118,34.787,14.41c9.289,9.29,14.406,21.643,14.406,34.783
+         s-5.118,25.493-14.41,34.787C425.492,444.076,413.14,449.193,400,449.193z"
+              />
+              <path
+                id="circle-green-10"
+                fill="#00FF00"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,422.548
+         c-6.109,0-11.623-2.283-15.944-6.605c-4.321-4.32-6.604-9.832-6.604-15.942c0-6.108,2.283-11.621,6.603-15.939
+         c4.323-4.324,9.836-6.608,15.945-6.608c6.11,0,11.626,2.285,15.948,6.609c4.318,4.316,6.6,9.829,6.6,15.938
+         c0,6.11-2.286,11.626-6.61,15.95C411.623,420.265,406.11,422.548,400,422.548z"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="target-container bottom-right">
+        <div class="svg-wrapper">
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="800px"
+            height="800px"
+            viewBox="0 0 800 800"
+            enable-background="new 0 0 800 800"
+            xml:space="preserve"
+          >
+            <g>
+              <radialGradient
+                id="circle-1_1_"
+                cx="400"
+                cy="400"
+                r="381.2451"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <path
+                id="circle-1"
+                fill="url(#circle-1_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,781.245
+		c-101.834,0-197.573-39.656-269.581-111.664C58.412,597.572,18.755,501.834,18.755,400s39.656-197.573,111.664-269.581
+		C202.427,58.412,298.166,18.755,400,18.755s197.572,39.656,269.581,111.664C741.589,202.427,781.245,298.166,781.245,400
+		s-39.656,197.572-111.664,269.581C597.572,741.589,501.834,781.245,400,781.245z"
+              />
+              <radialGradient
+                id="circle-2_1_"
+                cx="400"
+                cy="400"
+                r="344.3496"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.6207" style="stop-color: #ffffff" />
+                <stop offset="0.8777" style="stop-color: #fdfdfd" />
+                <stop offset="0.9702" style="stop-color: #f6f6f6" />
+                <stop offset="1" style="stop-color: #f2f2f2" />
+              </radialGradient>
+              <circle
+                id="circle-2"
+                fill="url(#circle-2_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                cx="400"
+                cy="400"
+                r="344.35"
+              />
+              <path
+                id="circle-3"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,707.455c-82.124,0-159.333-31.981-217.403-90.052
+		C124.525,559.333,92.544,482.124,92.544,400s31.981-159.333,90.052-217.403C240.667,124.525,317.876,92.544,400,92.544
+		s159.333,31.981,217.403,90.052c58.07,58.07,90.052,135.279,90.052,217.403s-31.981,159.333-90.052,217.403
+		S482.124,707.455,400,707.455z"
+              />
+              <path
+                id="circle-4"
+                stroke="#FFFFFF"
+                stroke-miterlimit="10"
+                d="M400,670.561c-72.269,0-140.212-28.143-191.315-79.245
+		C157.583,540.213,129.439,472.271,129.439,400c0-72.27,28.144-140.213,79.245-191.315C259.787,157.583,327.73,129.439,400,129.439
+		c72.271,0,140.213,28.144,191.315,79.245c51.103,51.103,79.245,119.046,79.245,191.315c0,72.269-28.143,140.213-79.245,191.315
+		S472.269,670.561,400,670.561z"
+              />
+              <radialGradient
+                id="circle-5_1_"
+                cx="400"
+                cy="400"
+                r="233.666"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-5"
+                fill="url(#circle-5_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,633.666
+		c-62.414,0-121.092-24.306-165.226-68.438c-44.134-44.135-68.44-102.813-68.44-165.228c0-62.414,24.305-121.092,68.439-165.226
+		c44.134-44.134,102.813-68.44,165.227-68.44c62.413,0,121.093,24.306,165.228,68.439C609.36,278.907,633.666,337.586,633.666,400
+		c0,62.415-24.306,121.093-68.438,165.228C521.093,609.36,462.415,633.666,400,633.666z"
+              />
+              <radialGradient
+                id="circle-6_1_"
+                cx="400"
+                cy="400"
+                r="196.7715"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #29abe2" />
+                <stop offset="1" style="stop-color: #0071bc" />
+              </radialGradient>
+              <path
+                id="circle-6"
+                fill="url(#circle-6_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,596.771
+		c-52.559,0-101.972-20.468-139.138-57.632c-37.166-37.167-57.633-86.58-57.633-139.14c0-52.559,20.468-101.973,57.633-139.137
+		c37.166-37.167,86.58-57.634,139.139-57.634c52.56,0,101.973,20.468,139.14,57.633c37.164,37.166,57.632,86.579,57.632,139.138
+		c0,52.56-20.468,101.973-57.634,139.14C501.973,576.304,452.56,596.771,400,596.771z"
+              />
+              <radialGradient
+                id="circle-7_1_"
+                cx="400"
+                cy="400"
+                r="159.877"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-7"
+                fill="url(#circle-7_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,559.877
+		c-42.704,0-82.853-16.63-113.05-46.827c-30.197-30.196-46.827-70.346-46.827-113.05s16.63-82.852,46.827-113.049
+		c30.197-30.198,70.345-46.828,113.05-46.828c42.704,0,82.854,16.63,113.051,46.828c30.196,30.197,46.826,70.345,46.826,113.049
+		c0,42.705-16.63,82.854-46.827,113.051C482.854,543.247,442.705,559.877,400,559.877z"
+              />
+              <radialGradient
+                id="circle-8_1_"
+                cx="400"
+                cy="400"
+                r="122.9824"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ff0000" />
+                <stop offset="1" style="stop-color: #c1272d" />
+              </radialGradient>
+              <path
+                id="circle-8"
+                fill="url(#circle-8_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,522.982
+		c-32.849,0-63.733-12.793-86.962-36.021c-23.228-23.228-36.02-54.111-36.02-86.961c0-32.849,12.792-63.732,36.021-86.96
+		c23.228-23.23,54.112-36.022,86.961-36.022s63.733,12.792,86.963,36.021c23.228,23.228,36.02,54.111,36.02,86.96
+		c0,32.85-12.793,63.733-36.021,86.963C463.733,510.19,432.85,522.982,400,522.982z"
+              />
+              <radialGradient
+                id="circle-9_1_"
+                cx="400"
+                cy="400"
+                r="86.0879"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" style="stop-color: #ffff00" />
+                <stop offset="0.4428" style="stop-color: #fffd01" />
+                <stop offset="0.6024" style="stop-color: #fef602" />
+                <stop offset="0.716" style="stop-color: #fdeb06" />
+                <stop offset="0.808" style="stop-color: #fcda0a" />
+                <stop offset="0.8867" style="stop-color: #fbc410" />
+                <stop offset="0.9551" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-9"
+                fill="url(#circle-9_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,486.088
+		c-22.994,0-44.613-8.955-60.874-25.217c-16.259-16.258-25.213-37.877-25.213-60.871s8.955-44.612,25.214-60.872
+		c16.26-16.261,37.878-25.216,60.873-25.216c22.994,0,44.613,8.955,60.875,25.215c16.258,16.259,25.213,37.877,25.213,60.872
+		c0,22.994-8.955,44.613-25.217,60.875C444.613,477.133,422.995,486.088,400,486.088z"
+              />
+              <radialGradient
+                id="circle-10_1_"
+                cx="400"
+                cy="400"
+                r="49.1934"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.4483" style="stop-color: #ffff00" />
+                <stop offset="0.6926" style="stop-color: #fffd01" />
+                <stop offset="0.7806" style="stop-color: #fef602" />
+                <stop offset="0.8433" style="stop-color: #fdeb06" />
+                <stop offset="0.894" style="stop-color: #fcda0a" />
+                <stop offset="0.9375" style="stop-color: #fbc410" />
+                <stop offset="0.9753" style="stop-color: #f9a918" />
+                <stop offset="1" style="stop-color: #f7931e" />
+              </radialGradient>
+              <path
+                id="circle-10"
+                fill="url(#circle-10_1_)"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,449.193
+		c-13.14,0-25.493-5.118-34.785-14.41c-9.292-9.291-14.408-21.644-14.408-34.783s5.117-25.492,14.408-34.783
+		c9.293-9.292,21.646-14.41,34.785-14.41s25.493,5.118,34.787,14.41c9.289,9.29,14.406,21.643,14.406,34.783
+		s-5.118,25.493-14.41,34.787C425.492,444.076,413.14,449.193,400,449.193z"
+              />
+              <path
+                id="circle-green-10"
+                fill="#00FF00"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                d="M400,422.548
+		c-6.109,0-11.623-2.283-15.944-6.605c-4.321-4.32-6.604-9.832-6.604-15.942c0-6.108,2.283-11.621,6.603-15.939
+		c4.323-4.324,9.836-6.608,15.945-6.608c6.11,0,11.626,2.285,15.948,6.609c4.318,4.316,6.6,9.829,6.6,15.938
+		c0,6.11-2.286,11.626-6.61,15.95C411.623,420.265,406.11,422.548,400,422.548z"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <button class="btn">click</button>
+  </body>
+</html>

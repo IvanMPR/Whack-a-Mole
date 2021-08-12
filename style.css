@@ -133,6 +133,15 @@ svg {
   left: 90%;
   transform: translate(-50%, -50%);
 }
+.ammo {
+  height: 5rem;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+}
+.bullet-ammo {
+  height: 6rem;
+}
 /* //////////////////////////////////////////// */
 .lower-part {
   border-top: 1px solid #fff;

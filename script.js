@@ -66,7 +66,10 @@ targetContainers.forEach(target => {
     console.log(e.target.id);
   });
 });
-document.querySelector('.btn').addEventListener('click', gameFlow);
+document.querySelector('.start').addEventListener('click', gameFlow);
+document
+  .querySelector('.reset')
+  .addEventListener('click', () => location.reload());
 
 function shuffle(array) {
   var currentIndex = array.length,

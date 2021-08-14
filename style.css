@@ -149,6 +149,7 @@ svg {
   background: skyblue;
   text-align: center;
   padding: 1rem;
+  position: relative;
 }
 .buttons {
   display: flex;
@@ -158,6 +159,28 @@ svg {
 }
 .buttons > :not(:last-child) {
   margin-bottom: 1rem;
+}
+.stats-info {
+  border: 1px solid #fff;
+  width: 20vw;
+  height: 10vh;
+  position: absolute;
+  top: 0%;
+  left: 60%;
+  margin-top: 1rem;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.span-stats {
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  color: #333;
+  font-weight: bold;
+  font-size: 1.8rem;
 }
 /* //////////////////////////////////////////// */
 @keyframes moveLeftRight {

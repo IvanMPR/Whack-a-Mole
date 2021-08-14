@@ -136,10 +136,11 @@ svg {
 .ammo {
   height: 5rem;
   position: absolute;
-  top: 80%;
+  top: 90%;
   left: 50%;
+  transform: translate(-50%, -50%);
 }
-.bullet-ammo {
+.bullet-img {
   height: 6rem;
 }
 /* //////////////////////////////////////////// */

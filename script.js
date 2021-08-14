@@ -2,16 +2,23 @@
 const gameContainer = document.querySelector('.game-container');
 const targetContainers = document.querySelectorAll('.target-container');
 const svgWrappers = document.querySelectorAll('.svg-wrapper');
-const stateVar = true;
+// const stateVar = true;
 const gunShot = function () {
   const tone = new Audio('sounds/376060__morganpurkis__mouth-gun.wav');
+  return tone.play();
+};
+const introMusic = function () {
+  const tone = new Audio('sounds/124454__juskiddink__western-themetune.wav');
   return tone.play();
 };
 
 gameContainer.addEventListener('click', gunShot);
 gameContainer.addEventListener('click', e => {
+  console.log(e.target.id);
+  if (e.target.classList.contains('game-container')) return;
   showBulletHole(e);
 });
+
 window.addEventListener('load', function () {
   svgWrappers.forEach(wrapper => {
     wrapper.style.visibility = 'hidden';

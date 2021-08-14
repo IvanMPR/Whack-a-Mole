@@ -1,8 +1,18 @@
 'use-strict';
+// ///////////////////////////////////////////////////////////////////////////
 const gameContainer = document.querySelector('.game-container');
 const targetContainers = document.querySelectorAll('.target-container');
 const svgWrappers = document.querySelectorAll('.svg-wrapper');
-// const stateVar = true;
+// ///////////////////////////////////////////////////////////////////////////
+const startBtn = document.querySelector('.start');
+const resetBtn = document.querySelector('.reset');
+// ///////////////////////////////////////////////////////////////////////////
+let stateVar = false;
+// ///////////////////////////////////////////////////////////////////////////
+const emptyGun = function () {
+  const tone = new Audio('sounds/543928__eminyildirim__pistol-gun-trigger.wav');
+  return tone.play();
+};
 const gunShot = function () {
   const tone = new Audio('sounds/376060__morganpurkis__mouth-gun.wav');
   return tone.play();
@@ -11,11 +21,13 @@ const introMusic = function () {
   const tone = new Audio('sounds/124454__juskiddink__western-themetune.wav');
   return tone.play();
 };
+// ///////////////////////////////////////////////////////////////////////////
 
-gameContainer.addEventListener('click', gunShot);
+gameContainer.addEventListener('click', function () {
+  return !stateVar ? emptyGun() : gunShot();
+});
 gameContainer.addEventListener('click', e => {
   console.log(e.target.id);
-  if (e.target.classList.contains('game-container')) return;
   showBulletHole(e);
 });
 
@@ -24,6 +36,10 @@ window.addEventListener('load', function () {
     wrapper.style.visibility = 'hidden';
   });
 });
+startBtn.addEventListener('click', gameFlow);
+resetBtn.addEventListener('click', () => location.reload());
+// ///////////////////////////////////////////////////////////////////////////
+
 function showBulletHole(e) {
   const randomNum = Math.floor(Math.random() * 8 + 1);
   const x = e.clientX;
@@ -37,12 +53,16 @@ function showBulletHole(e) {
   bulletHoleImg.setAttribute('src', source);
   bulletHoleImg.style.left = `${x}px`;
   bulletHoleImg.style.top = `${y}px`;
+
+  if (e.target.id === '') return;
+
   gameContainer.appendChild(bulletHoleImg);
   setTimeout(() => {
     bulletHoleImg.parentNode.removeChild(bulletHoleImg);
-    // bulletHoleImg.style.display = 'none';
-  }, 1000);
+  }, 200);
 }
+// ///////////////////////////////////////////////////////////////////////////
+
 function showRandomTarget() {
   const targetPositions = [
     'center',
@@ -53,7 +73,6 @@ function showRandomTarget() {
     'top-left',
     'top-right',
   ];
-
   const domElement = document.querySelector(`.${shuffle(targetPositions)[0]}`);
   // console.log(domElement.children);
   domElement.children[0].style.visibility = 'visible';
@@ -61,22 +80,17 @@ function showRandomTarget() {
     domElement.children[0].style.visibility = 'hidden';
   }, 1000);
 }
+// ///////////////////////////////////////////////////////////////////////////
 function gameFlow() {
+  stateVar = true;
   const startGame = setInterval(() => {
     showRandomTarget();
+    if (!stateVar) clearInterval(startGame);
   }, 1500);
 }
+// ///////////////////////////////////////////////////////////////////////////
 
-targetContainers.forEach(target => {
-  addEventListener('click', function (e) {
-    e.stopImmediatePropagation();
-    console.log(e.target.id);
-  });
-});
-document.querySelector('.start').addEventListener('click', gameFlow);
-document
-  .querySelector('.reset')
-  .addEventListener('click', () => location.reload());
+// ///////////////////////////////////////////////////////////////////////////
 
 function shuffle(array) {
   var currentIndex = array.length,

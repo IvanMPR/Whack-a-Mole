@@ -136,13 +136,14 @@ svg {
 .ammo {
   height: 5rem;
   position: absolute;
-  top: 90%;
+  top: 93%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .bullet-img {
-  height: 6rem;
+  height: 100%;
 }
+
 /* //////////////////////////////////////////// */
 .lower-part {
   border-top: 1px solid #fff;
@@ -151,6 +152,24 @@ svg {
   text-align: center;
   padding: 1rem;
   position: relative;
+}
+.points {
+  width: 22vw;
+  height: 10vh;
+  border: 1px solid #fff;
+  position: absolute;
+  top: 0%;
+  left: 20%;
+  margin-top: 1rem;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.points-current {
+  margin-right: 1rem;
 }
 .buttons {
   display: flex;
@@ -163,7 +182,7 @@ svg {
 }
 .stats-info {
   border: 1px solid #fff;
-  width: 20vw;
+  width: 22vw;
   height: 10vh;
   position: absolute;
   top: 0%;

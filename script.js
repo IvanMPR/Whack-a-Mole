@@ -20,6 +20,7 @@ const gameData = {
   hits: 0,
   misses: 0,
   livesCount: 7,
+  initialTotalScore: 0,
   totalHits() {
     return this.hits + this.misses;
   },
@@ -91,7 +92,7 @@ function showBulletHole(e) {
   gameContainer.appendChild(bulletHoleImg);
   setTimeout(() => {
     bulletHoleImg.parentNode.removeChild(bulletHoleImg);
-  }, 250);
+  }, 300);
 }
 // ///////////////////////////////////////////////////////////////////////////
 
@@ -183,5 +184,8 @@ function displayScore(e) {
   const score = e.target.id.split('-').pop();
   const output = score === '' ? 0 : score === 'Layer_1' ? 0 : +score;
 
+  const total = (gameData.initialTotalScore += output);
+
+  totalScore.textContent = total;
   currentShot.textContent = output;
 }

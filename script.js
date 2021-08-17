@@ -153,8 +153,8 @@ function reloadGun() {
   const path = 'img/bullets/Bullet.png';
   bullets.forEach(bullet => {
     bullet.setAttribute('src', path);
-    gunReloadSound();
   });
+  gunReloadSound();
 }
 
 function countHitsAndMisses(e) {

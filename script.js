@@ -87,7 +87,7 @@ function showBulletHole(e) {
   bulletHoleImg.style.left = `${x}px`;
   bulletHoleImg.style.top = `${y}px`;
 
-  if (e.target.id === '') return;
+  if (e.target.id === '' || e.target.id === 'Layer_1') return;
 
   gameContainer.appendChild(bulletHoleImg);
   setTimeout(() => {
@@ -188,4 +188,10 @@ function displayScore(e) {
 
   totalScore.textContent = total;
   currentShot.textContent = output;
+}
+
+function disableStartButton() {
+  if (gameData.stateVar) {
+    startBtn.style.pointerEvents = 'none';
+  }
 }

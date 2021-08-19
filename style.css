@@ -77,6 +77,18 @@ svg {
   /* cursor: url(img/crosshairs/red-dot-crosshair-smallest.png), pointer; */
   cursor: url(img/crosshairs/red-dot-crosshair-smallest-32x32.png) 16 16, auto;
 }
+.large-score-container {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.large-score {
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: bold;
+  transition: all 0.2s;
+}
 .target-container {
   display: flex;
   align-items: center;

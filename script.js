@@ -12,9 +12,12 @@ const bullets = document.querySelectorAll('.bullet-img');
 const hitsCount = document.querySelector('.hits-count');
 const missesCount = document.querySelector('.misses-count');
 // //////////////////////////////////////////////////////////////////////////
+const statsNumbers = document.querySelectorAll('.span-stats');
+// //////////////////////////////////////////////////////////////////////////
 const currentShot = document.querySelector('.current-shot');
 const totalScore = document.querySelector('.total-score');
 // ///////////////////////////////////////////////////////////////////////////
+
 const gameData = {
   stateVar: false,
   hits: 0,
@@ -69,8 +72,14 @@ window.addEventListener('load', function () {
   });
 });
 
-startBtn.addEventListener('click', gameFlow);
-resetBtn.addEventListener('click', () => location.reload());
+startBtn.addEventListener('click', e => {
+  e.preventDefault();
+  gameFlow();
+});
+resetBtn.addEventListener('click', e => {
+  e.preventDefault();
+  location.reload();
+});
 // ///////////////////////////////////////////////////////////////////////////
 
 function showBulletHole(e) {
@@ -119,6 +128,7 @@ function showRandomTarget() {
 }
 // ///////////////////////////////////////////////////////////////////////////
 function gameFlow() {
+  disableStartButton();
   introMusic();
   reloadGun();
   setTimeout(() => {
@@ -167,6 +177,7 @@ function countHitsAndMisses(e) {
 
     if (gameData.misses === gameData.livesCount) {
       gameData.stateVar = false;
+      enableStartButton();
     }
   } else {
     gameData.hits++;
@@ -191,7 +202,13 @@ function displayScore(e) {
 }
 
 function disableStartButton() {
-  if (gameData.stateVar) {
-    startBtn.style.pointerEvents = 'none';
-  }
+  startBtn.style.pointerEvents = 'none';
+  startBtn.style.cursor = 'default';
+}
+function enableStartButton() {
+  startBtn.style.pointerEvents = 'auto';
+  startBtn.style.cursor = 'pointer';
+}
+function clearStatsFields() {
+  statsNumbers.forEach(number => (number.textContent = 0));
 }

@@ -6,6 +6,7 @@ const svgWrappers = document.querySelectorAll('.svg-wrapper');
 // ///////////////////////////////////////////////////////////////////////////
 const startBtn = document.querySelector('.start');
 const resetBtn = document.querySelector('.reset');
+const rulesBtn = document.querySelector('.rules-and-info');
 // ///////////////////////////////////////////////////////////////////////////
 const hitsCount = document.querySelector('.hits-count');
 const missesCount = document.querySelector('.misses-count');
@@ -20,8 +21,13 @@ const ammoContainer = document.querySelector('.ammo');
 // ///////////////////////////////////////////////////////////////////////////
 const largeScore = document.querySelector('.large-score');
 // //////////////////////////////////////////////////////////////////////////
+const modalDiv = document.querySelector('.modal');
+const closeModalSpan = document.querySelector('.close-modal');
+// //////////////////////////////////////////////////////////////////////////
+
 const gameData = {
   stateVar: false,
+  isModalOpen: false,
   hits: 0,
   misses: 0,
   livesCount: 5,
@@ -79,6 +85,33 @@ resetBtn.addEventListener('click', e => {
   e.preventDefault();
   location.reload();
 });
+rulesBtn.addEventListener('click', e => {
+  e.preventDefault();
+  showModal();
+});
+window.addEventListener('keydown', e => {
+  if (!gameData.isModalOpen) return;
+  if (e.key === 'Escape') closeModal();
+});
+window.addEventListener('click', e => {
+  if (!gameData.isModalOpen) return;
+  if (e.target.classList.contains('overlay')) closeModal();
+});
+
+closeModalSpan.addEventListener('click', closeModal);
+// ///////////////////////////////////////////////////////////////////////////
+function closeModal() {
+  modalDiv.classList.add('hidden');
+  modalDiv.classList.remove('visible');
+  modalDiv.style.zIndex = '-5';
+  gameData.isModalOpen = false;
+}
+function showModal() {
+  gameData.isModalOpen = true;
+  modalDiv.classList.remove('hidden');
+  modalDiv.classList.add('visible');
+  modalDiv.style.zIndex = '10';
+}
 // ///////////////////////////////////////////////////////////////////////////
 
 function showBulletHole(e) {

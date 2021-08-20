@@ -9,6 +9,7 @@ const resetBtn = document.querySelector('.reset');
 // ///////////////////////////////////////////////////////////////////////////
 const hitsCount = document.querySelector('.hits-count');
 const missesCount = document.querySelector('.misses-count');
+const targetsCount = document.querySelector('.targets-count');
 // //////////////////////////////////////////////////////////////////////////
 const statsNumbers = document.querySelectorAll('.span-stats');
 // //////////////////////////////////////////////////////////////////////////
@@ -25,6 +26,7 @@ const gameData = {
   misses: 0,
   livesCount: 5,
   initialTotalScore: 0,
+  appearedTargetsCount: 0,
   totalHits() {
     return this.hits + this.misses;
   },
@@ -120,11 +122,14 @@ function showRandomTarget() {
     domElement.children[0].style.visibility = 'visible';
     setTimeout(() => {
       domElement.children[0].style.visibility = 'hidden';
+      gameData.appearedTargetsCount++;
+      targetsCount.textContent = gameData.appearedTargetsCount;
     }, 1000);
   }
 }
 // ///////////////////////////////////////////////////////////////////////////
 function gameFlow() {
+  clearStatsFields();
   disableStartButton();
   introMusic();
   reloadGun();
@@ -132,6 +137,7 @@ function gameFlow() {
     gameData.stateVar = true;
     const startGame = setInterval(() => {
       showRandomTarget();
+      if (!gameData.stateVar) clearInterval(startGame);
     }, 1500);
   }, 5000);
 }
@@ -208,6 +214,10 @@ function enableStartButton() {
   startBtn.style.cursor = 'pointer';
 }
 function clearStatsFields() {
+  gameData.hits = 0;
+  gameData.misses = 0;
+  gameData.initialTotalScore = 0;
+  gameData.appearedTargetsCount = 0;
   statsNumbers.forEach(number => (number.textContent = 0));
 }
 function renderTotalRemainingLives(threshold) {
@@ -223,25 +233,30 @@ function renderTotalRemainingLives(threshold) {
 }
 
 function displayLargeScore(currentScore) {
-  if (!currentScore) return;
-  const color =
-    currentScore === 1 || currentScore === 2
-      ? 'white'
-      : currentScore === 3 || currentScore === 4
-      ? 'black'
-      : currentScore === 5 || currentScore === 6
-      ? 'blue'
-      : currentScore === 7 || currentScore === 8
-      ? 'red'
-      : currentScore === 9 || currentScore === 10
-      ? 'yellow'
-      : 'green';
-  largeScore.style.opacity = '1';
-  largeScore.innerText = `${
-    currentScore === 12 ? `Bullseye ! + ${currentScore}` : `+ ${currentScore}`
-  }`;
-  largeScore.style.color = color;
-  setTimeout(() => {
-    largeScore.style.opacity = '0';
-  }, 550);
+  if (gameData.stateVar) {
+    const color =
+      currentScore === 1 || currentScore === 2
+        ? 'white'
+        : currentScore === 3 || currentScore === 4
+        ? 'black'
+        : currentScore === 5 || currentScore === 6
+        ? 'blue'
+        : currentScore === 7 || currentScore === 8
+        ? 'red'
+        : currentScore === 9 || currentScore === 10
+        ? 'yellow'
+        : 'green';
+    largeScore.style.opacity = '1';
+    largeScore.innerText = `${
+      currentScore === 12
+        ? `Bullseye ! + ${currentScore}`
+        : currentScore === 0 || currentScore === 'Layer_1'
+        ? 'MISS!'
+        : `+ ${currentScore}`
+    }`;
+    largeScore.style.color = color;
+    setTimeout(() => {
+      largeScore.style.opacity = '0';
+    }, 550);
+  }
 }

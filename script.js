@@ -163,7 +163,7 @@ function showRandomTarget() {
 // ///////////////////////////////////////////////////////////////////////////
 function gameFlow() {
   clearStatsFields();
-  disableStartButton();
+  disableOtherButtons();
   introMusic();
   reloadGun();
   setTimeout(() => {
@@ -214,7 +214,7 @@ function countHitsAndMisses(e) {
 
     if (gameData.misses === gameData.livesCount) {
       gameData.stateVar = false;
-      enableStartButton();
+      enableOtherButtons();
     }
   } else {
     gameData.hits++;
@@ -238,13 +238,17 @@ function displayScore(e) {
   currentShot.textContent = output;
 }
 
-function disableStartButton() {
+function disableOtherButtons() {
   startBtn.style.pointerEvents = 'none';
   startBtn.style.cursor = 'default';
+  rulesBtn.style.pointerEvents = 'none';
+  rulesBtn.style.cursor = 'default';
 }
-function enableStartButton() {
+function enableOtherButtons() {
   startBtn.style.pointerEvents = 'auto';
   startBtn.style.cursor = 'pointer';
+  rulesBtn.style.pointerEvents = 'auto';
+  rulesBtn.style.cursor = 'pointer';
 }
 function clearStatsFields() {
   gameData.hits = 0;

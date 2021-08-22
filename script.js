@@ -24,7 +24,6 @@ const largeScore = document.querySelector('.large-score');
 const modalDiv = document.querySelector('.modal');
 const closeModalSpan = document.querySelector('.close-modal');
 // //////////////////////////////////////////////////////////////////////////
-
 const gameData = {
   stateVar: false,
   isModalOpen: false,
@@ -33,6 +32,8 @@ const gameData = {
   livesCount: 5,
   initialTotalScore: 0,
   appearedTargetsCount: 0,
+  skippedTargets: 0,
+  skippedTargetsLimit: 5,
   totalHits() {
     return this.hits + this.misses;
   },
@@ -155,9 +156,12 @@ function showRandomTarget() {
     domElement.children[0].style.visibility = 'visible';
     setTimeout(() => {
       domElement.children[0].style.visibility = 'hidden';
-      gameData.appearedTargetsCount++;
+      gameData.appearedTargetsCount += 1;
       targetsCount.textContent = gameData.appearedTargetsCount;
+      // countSkippedTargets(gameData.totalHits(), gameData.appearedTargetsCount);
     }, 1000);
+  } else {
+    showEndGameMessage();
   }
 }
 // ///////////////////////////////////////////////////////////////////////////
@@ -208,16 +212,17 @@ function reloadGun() {
 function countHitsAndMisses(e) {
   if (!gameData.stateVar) return;
   if (e.target.id === '' || e.target.id === 'Layer_1') {
-    gameData.misses++;
+    gameData.misses += 1;
     missesCount.textContent = gameData.misses;
+    // Render lost life
     remainingLives(gameData.misses);
-
+    // If all lives are lost
     if (gameData.misses === gameData.livesCount) {
       gameData.stateVar = false;
       enableOtherButtons();
     }
   } else {
-    gameData.hits++;
+    gameData.hits += 1;
     hitsCount.textContent = gameData.hits;
   }
 }
@@ -231,7 +236,6 @@ function remainingLives(num) {
 function displayScore(e) {
   const score = e.target.id.split('-').pop();
   const output = score === '' ? 0 : score === 'Layer_1' ? 0 : +score;
-
   const total = (gameData.initialTotalScore += output);
   displayLargeScore(output);
   totalScore.textContent = total;
@@ -255,8 +259,12 @@ function clearStatsFields() {
   gameData.misses = 0;
   gameData.initialTotalScore = 0;
   gameData.appearedTargetsCount = 0;
+  gameData.skippedTargets = 0;
   statsNumbers.forEach(number => (number.textContent = 0));
+  largeScore.textContent = '';
+  largeScore.style.opacity = '0';
 }
+
 function renderTotalRemainingLives(threshold) {
   const arr = Array.from({ length: threshold }, (_, i) => i + 1).reverse();
   return arr.map(el => {
@@ -267,6 +275,15 @@ function renderTotalRemainingLives(threshold) {
 />`;
     ammoContainer.insertAdjacentHTML('beforeend', html);
   });
+}
+function showEndGameMessage() {
+  largeScore.style.opacity = '1';
+  largeScore.textContent = `Game Over Cowboy!`;
+}
+function additionalEndMessage() {
+  largeScore.style.opacity = '1';
+  largeScore.style.fontSize = '2.5rem';
+  largeScore.textContent = `You Skipped ${gameData.skippedTargetsLimit} Targets!`;
 }
 
 function displayLargeScore(currentScore) {
@@ -292,8 +309,23 @@ function displayLargeScore(currentScore) {
         : `+ ${currentScore}`
     }`;
     largeScore.style.color = color;
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       largeScore.style.opacity = '0';
     }, 550);
+    if (!gameData.stateVar) clearTimeout(timer);
   }
 }
+// function countSkippedTargets(fn, shownTargets) {
+//   if (shownTargets > fn) {
+//     gameData.skippedTargets += 1;
+//     console.log(gameData.skippedTargets);
+//   }
+//   if (gameData.skippedTargets === gameData.skippedTargetsLimit) {
+//     gameData.stateVar = false;
+//     showEndGameMessage();
+//     setTimeout(() => {
+//       additionalEndMessage();
+//     }, 1500);
+//     enableOtherButtons();
+//   }
+// }

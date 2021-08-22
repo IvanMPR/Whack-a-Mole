@@ -255,15 +255,21 @@ svg {
 .modal-box {
   position: relative;
   border: 1px solid #fff;
-  width: 40%;
-  height: 50%;
+  width: 50%;
+  height: 60%;
   color: #fff;
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
+  line-height: 1.5;
 }
+
+.modal-box > :not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 .close-modal {
   position: absolute;
-  top: 5%;
+  top: 4%;
   left: 90%;
   cursor: pointer;
   font-size: 2rem;
@@ -271,6 +277,33 @@ svg {
 }
 
 .close-modal:hover {
-  color: red;
+  color: yellow;
+}
+
+.paragraph {
+  font-size: 1.1rem;
+  text-align: justify;
+  text-indent: 2rem;
+  /* text-justify: inter-word; */
+}
+h2 {
+  /* margin-bottom: 0.5rem; */
+  color: yellow;
 }
 /* ///////////////////////////////////////////////////// */
+.youTube-link:link,
+.youTube-link:visited {
+  all: initial;
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0 0.3rem;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  transition: all 0.2s;
+  display: inline-block;
+  text-underline-offset: 2px;
+}
+.youTube-link:hover {
+  color: yellow;
+}

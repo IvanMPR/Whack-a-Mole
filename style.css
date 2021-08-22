@@ -161,7 +161,7 @@ svg {
   position: relative;
   display: flex;
   align-items: top;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .points {
   width: 25vw;

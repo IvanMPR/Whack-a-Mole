@@ -307,3 +307,7 @@ h2 {
 .youTube-link:hover {
   color: yellow;
 }
+kbd,
+.x {
+  color: yellow;
+}

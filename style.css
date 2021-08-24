@@ -207,35 +207,7 @@ svg {
   font-size: 1.8rem;
 }
 /* //////////////////////////////////////////// */
-@keyframes moveLeftRight {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(300px);
-  }
-  75% {
-    transform: translateX(-100px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes moveRightLeft {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-300px);
-  }
-  75% {
-    transform: translateX(100px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-/* ///////////////////////////////////////////////////// */
+
 /* Modal styling */
 .modal {
   position: absolute;

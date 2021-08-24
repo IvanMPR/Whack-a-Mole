@@ -49,13 +49,11 @@ a:hover {
   position: absolute;
   top: 5%;
   left: 20%;
-  /* animation: moveLeftRight 60s linear alternate-reverse infinite; */
 }
 .right {
   position: absolute;
   top: 8%;
   left: 65%;
-  /* animation: moveRightLeft 60s linear alternate-reverse infinite; */
 }
 svg {
   width: 12vw;
@@ -95,6 +93,8 @@ svg {
   justify-content: center;
   background: url(img/other/x-mark.png) no-repeat center center/cover;
   border-radius: 50%;
+  width: 12vw;
+  height: 12vw;
 }
 /* Targets positions */
 .center {

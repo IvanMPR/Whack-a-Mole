@@ -29,6 +29,9 @@ export const largeScore = document.querySelector('.large-score');
 // //////////////////////////////////////////////////////////////////////////
 export const modalDiv = document.querySelector('.modal');
 // //////////////////////////////////////////////////////////////////////////
+// const targetContainers = document.querySelectorAll('.target-container')
+// //////////////////////////////////////////////////////////////////////////
+
 // Main helper object for storing game data
 export const gameData = {
   stateVar: false,
@@ -57,9 +60,6 @@ gameContainer.addEventListener('click', e => {
 });
 
 window.addEventListener('load', function () {
-  svgWrappers.forEach(wrapper => {
-    wrapper.style.visibility = 'hidden';
-  });
   renderTotalRemainingLives(gameData.livesCount);
 });
 

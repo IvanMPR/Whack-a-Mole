@@ -284,12 +284,12 @@ svg {
   font-size: 1.1rem;
   text-align: justify;
   text-indent: 2rem;
-  /* text-justify: inter-word; */
 }
+
 h2 {
-  /* margin-bottom: 0.5rem; */
   color: yellow;
 }
+
 /* ///////////////////////////////////////////////////// */
 .youTube-link:link,
 .youTube-link:visited {

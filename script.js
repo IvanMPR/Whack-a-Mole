@@ -105,7 +105,7 @@ export function shuffle(array) {
 
   return array;
 }
-// Disable Start and Rules buttons while game is on
+// Disable Start and Rules buttons
 export function disableOtherButtons() {
   startBtn.style.pointerEvents = 'none';
   startBtn.style.cursor = 'default';
@@ -146,6 +146,7 @@ function gameFlow() {
   disableOtherButtons();
   introMusic();
   reloadGun();
+  // If game is started again before end music theme has ended
   endGameTheme.pause();
   endGameTheme.currentTime = 0;
   setTimeout(() => {

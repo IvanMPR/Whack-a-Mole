@@ -7,7 +7,7 @@ import { displayScore, renderTotalRemainingLives, countHitsAndMisses, showBullet
 
 // ///////////////////////////////////////////////////////////////////////////
 // Elements selection
-const svgWrappers = document.querySelectorAll('.svg-wrapper');
+
 export const gameContainer = document.querySelector('.game-container');
 // ///////////////////////////////////////////////////////////////////////////
 export const startBtn = document.querySelector('.start');
@@ -28,8 +28,6 @@ export const ammoContainer = document.querySelector('.ammo');
 export const largeScore = document.querySelector('.large-score');
 // //////////////////////////////////////////////////////////////////////////
 export const modalDiv = document.querySelector('.modal');
-// //////////////////////////////////////////////////////////////////////////
-// const targetContainers = document.querySelectorAll('.target-container')
 // //////////////////////////////////////////////////////////////////////////
 
 // Main helper object for storing game data

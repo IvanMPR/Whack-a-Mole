@@ -2,6 +2,8 @@
 import { shuffle, gameData, largeScore, hitsCount, totalScore, currentShot, missesCount, targetsCount, gameContainer, ammoContainer, enableOtherButtons, showEndGameMessage } from "../script.js";
 // prettier-ignore
 import { gunReloadSound, showTargetSound } from "./audio.js";
+// prettier-ignore
+import { injectTarget } from "./svg_target.js";
 // Function for displaying large font score after every shot
 export function displayLargeScore(currentScore) {
   if (gameData.stateVar) {
@@ -107,10 +109,14 @@ export function showRandomTarget() {
     const domElement = document.querySelector(
       `.${shuffle(targetPositions)[0]}`
     );
+    // Render target in domElement
+    injectTarget(domElement);
     showTargetSound();
     domElement.children[0].style.visibility = 'visible';
     setTimeout(() => {
       domElement.children[0].style.visibility = 'hidden';
+      // delete target from domElement after displaying it and hiding
+      domElement.innerHTML = '';
       gameData.appearedTargetsCount += 1;
       targetsCount.textContent = gameData.appearedTargetsCount;
     }, 1000);

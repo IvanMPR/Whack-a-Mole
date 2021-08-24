@@ -1,5 +1,5 @@
 export function injectTarget(element) {
-  const html = `<div class="svg-wrapper">
+  const html = `
    <svg
      version="1.1"
      id="Layer_1"
@@ -219,7 +219,7 @@ export function injectTarget(element) {
        />
      </g>
    </svg>
-   </div>`;
+   `;
 
   element.insertAdjacentHTML('beforeend', html);
 }

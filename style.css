@@ -39,6 +39,11 @@ a:hover {
   box-shadow: 1.5px 5px 5px rgba(51, 51, 51, 0.2);
 }
 /* //////////////////////////////////// */
+.title,
+.left,
+.right {
+  user-select: none;
+}
 .title {
   position: absolute;
   top: 5%;
@@ -228,7 +233,6 @@ svg {
   position: relative;
   border: 1px solid #fff;
   max-width: 50%;
-  /* height: 60%; */
   color: #fff;
   padding: 1.5rem;
   text-align: center;

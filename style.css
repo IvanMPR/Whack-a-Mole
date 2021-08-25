@@ -227,15 +227,15 @@ svg {
 .modal-box {
   position: relative;
   border: 1px solid #fff;
-  width: 50%;
-  height: 60%;
+  max-width: 50%;
+  /* height: 60%; */
   color: #fff;
   padding: 1.5rem;
   text-align: center;
   line-height: 1.5;
 }
 
-.modal-box > :not(:last-child) {
+.modal-box > * {
   margin-bottom: 1rem;
 }
 

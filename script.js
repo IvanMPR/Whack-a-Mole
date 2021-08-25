@@ -4,7 +4,6 @@ import { emptyGun, gunShot, introMusic, endGameTheme } from "./modules/audio.js"
 import { showModal, closeModal } from './modules/modal.js';
 //prettier-ignore
 import { displayScore, renderTotalRemainingLives, countHitsAndMisses, showBulletHole, reloadGun, showRandomTarget } from "./modules/view.js";
-
 // ///////////////////////////////////////////////////////////////////////////
 // Elements selection
 
@@ -40,23 +39,23 @@ export const gameData = {
   initialTotalScore: 0,
   appearedTargetsCount: 0,
   skippedTargets: 0,
-  skippedTargetsLimit: 5,
+  gameFlowTimeoutValue: 1700, //milliseconds
+  showRandomTargetTimeoutValue: 1200, //milliseconds
   totalHits() {
     return this.hits + this.misses;
   },
 };
 // ///////////////////////////////////////////////////////////////////////////
+
 // Event listeners
 gameContainer.addEventListener('click', function () {
   return !gameData.stateVar ? emptyGun() : gunShot();
 });
 gameContainer.addEventListener('click', e => {
-  console.log(e.target.id);
   showBulletHole(e);
   countHitsAndMisses(e);
   displayScore(e);
 });
-
 window.addEventListener('load', function () {
   renderTotalRemainingLives(gameData.livesCount);
 });
@@ -81,8 +80,8 @@ window.addEventListener('click', e => {
   if (!gameData.isModalOpen) return;
   if (e.target.classList.contains('overlay')) closeModal();
 });
-
 // ///////////////////////////////////////////////////////////////////////////
+
 // Borrowed code, Knuth shuffle algorithm
 export function shuffle(array) {
   var currentIndex = array.length,
@@ -117,6 +116,8 @@ export function clearStatsFields() {
   gameData.initialTotalScore = 0;
   gameData.appearedTargetsCount = 0;
   gameData.skippedTargets = 0;
+  gameData.gameFlowTimeoutValue = 1700;
+  gameData.showRandomTargetTimeoutValue = 1200;
   statsNumbers.forEach(number => (number.textContent = 0));
   largeScore.textContent = '';
   largeScore.style.opacity = '0';
@@ -145,33 +146,64 @@ function gameFlow() {
   introMusic();
   reloadGun();
   // If game is started again before end music theme has ended
+  // Stop the music
   endGameTheme.pause();
+  // Rewind music file to beginning
   endGameTheme.currentTime = 0;
   setTimeout(() => {
     gameData.stateVar = true;
     const startGame = setInterval(() => {
       showRandomTarget();
       if (!gameData.stateVar) clearInterval(startGame);
-    }, 1500);
+      //timeout amount in ms defined in gameData helper object, decreased every 10 targets
+    }, gameData.gameFlowTimeoutValue);
+    // timeout of 5000 ms is for allowing game intro music file to finish before targets start appearing
   }, 5000);
 }
 // ////////////////////////////////////////////////////////////////////////
-function countSkippedTargets(fn, shownTargets) {
-  if (shownTargets > fn) {
-    gameData.skippedTargets += 1;
-    console.log(gameData.skippedTargets);
-  } // check every 5-10 targets if the number of appeared targets are larger than gameData.totalHits()
-  // if (gameData.skippedTargets === gameData.skippedTargetsLimit) {
-  //   gameData.stateVar = false;
-  //   showEndGameMessage();
-  //   setTimeout(() => {
-  //     additionalEndMessage();
-  //   }, 1500);
-  //   enableOtherButtons();
-  // }
+// Preventing endless target appearing if user is not shooting
+export function countSkippedTargets(targetsCount, totalHits) {
+  if (targetsCount - totalHits >= gameData.livesCount) {
+    gameData.stateVar = false;
+    enableOtherButtons();
+    setTimeout(() => {
+      additionalEndMessage();
+    }, 2000);
+  }
 }
-// function additionalEndMessage() {
-//   largeScore.style.opacity = '1';
-//   largeScore.style.fontSize = '2.5rem';
-//   largeScore.textContent = `You Skipped ${gameData.skippedTargetsLimit} Targets!`;
-// }
+
+function additionalEndMessage() {
+  largeScore.style.opacity = '1';
+  largeScore.style.fontSize = '2.5rem';
+  largeScore.textContent = `You Skipped To Many Targets!`;
+}
+
+// Increasing game speed every 10 appeared targets
+export function increaseGameSpeed(targetsCount) {
+  if (targetsCount < 10) return;
+
+  if (targetsCount >= 10) {
+    gameData.showRandomTargetTimeoutValue = 1000;
+    gameData.gameFlowTimeoutValue = 1500;
+  }
+
+  if (targetsCount >= 20) {
+    gameData.showRandomTargetTimeoutValue = 900;
+    gameData.gameFlowTimeoutValue = 1400;
+  }
+
+  if (targetsCount >= 30) {
+    gameData.showRandomTargetTimeoutValue = 800;
+    gameData.gameFlowTimeoutValue = 1300;
+  }
+
+  if (targetsCount >= 40) {
+    gameData.showRandomTargetTimeoutValue = 750;
+    gameData.gameFlowTimeoutValue = 1250;
+  }
+
+  if (targetsCount >= 50) {
+    gameData.showRandomTargetTimeoutValue = 700;
+    gameData.gameFlowTimeoutValue = 1200;
+  }
+}

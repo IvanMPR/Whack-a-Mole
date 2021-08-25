@@ -60,7 +60,7 @@ export function showModal() {
        Click on the Start button, and after short music intro, targets will
        appear randomly on their spots. Earned points depends on your
        precision. 'Green' circle is 'Bullseye', and it brings 12 points. As
-       you progress, targets will appear with progressing speed. Every time
+       you progress, targets will appear faster. Every time
        you miss, you lose one life. Number of lives is represented by
        number of shiny bullets left.
      </p>

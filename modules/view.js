@@ -1,5 +1,5 @@
 //prettier-ignore
-import { shuffle, gameData, largeScore, hitsCount, totalScore, currentShot, missesCount, targetsCount, gameContainer, ammoContainer, enableOtherButtons, showEndGameMessage } from "../script.js";
+import { shuffle, gameData, largeScore, hitsCount, totalScore, currentShot, missesCount, targetsCount, gameContainer, ammoContainer, enableOtherButtons, showEndGameMessage, countSkippedTargets, increaseGameSpeed } from "../script.js";
 // prettier-ignore
 import { gunReloadSound, showTargetSound } from "./audio.js";
 // prettier-ignore
@@ -97,6 +97,7 @@ export function reloadGun() {
 // Display random target
 export function showRandomTarget() {
   if (gameData.stateVar) {
+    // Possible target locations
     const targetPositions = [
       'center',
       'center-left',
@@ -106,20 +107,32 @@ export function showRandomTarget() {
       'top-left',
       'top-right',
     ];
+    // Pick target location after shuffling them
     const domElement = document.querySelector(
       `.${shuffle(targetPositions)[0]}`
     );
-    // Render target in domElement
+    // Insert target in domElement
     injectTarget(domElement);
+    // Play swoosh sound
     showTargetSound();
+    // Make target appear
     domElement.children[0].style.visibility = 'visible';
     setTimeout(() => {
+      // Hide target after timeout value
       domElement.children[0].style.visibility = 'hidden';
-      // delete target from domElement after displaying it and hiding
+
+      // Delete target from domElement after displaying it and hiding
       domElement.innerHTML = '';
+      // Increase stats
       gameData.appearedTargetsCount += 1;
+      // Count if target appeared without being shot at
+      countSkippedTargets(gameData.appearedTargetsCount, gameData.totalHits());
+      // Check if the condition is met for game speed to be increased
+      increaseGameSpeed(gameData.appearedTargetsCount);
+      // Increase stats
       targetsCount.textContent = gameData.appearedTargetsCount;
-    }, 1000);
+      // Timeout amount in ms defined in gameData helper object, decreased every 10 targets
+    }, gameData.showRandomTargetTimeoutValue);
   } else {
     showEndGameMessage();
   }
@@ -129,6 +142,7 @@ export function displayScore(e) {
   const score = e.target.id.split('-').pop();
   const output = score === '' ? 0 : score === 'Layer_1' ? 0 : +score;
   const total = (gameData.initialTotalScore += output);
+  // Render output values
   displayLargeScore(output);
   totalScore.textContent = total;
   currentShot.textContent = output;
@@ -136,6 +150,7 @@ export function displayScore(e) {
 // Read number of lives from gameData.livesCount and create appropriate number of shiny bullet images(lives)
 // This function is called on game start
 export function renderTotalRemainingLives(threshold) {
+  // Array is reversed in order to render lost lives from right bullet imgs to left bullet imgs
   const arr = Array.from({ length: threshold }, (_, i) => i + 1).reverse();
   return arr.map(el => {
     const html = `<img

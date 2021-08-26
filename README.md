@@ -44,4 +44,4 @@ It is pretty obvious that inspiration for this project came from
        fulfilled it's purpose.
   
   # Tech
-  HTML, CSS, Vanilla JavaScript 
+  HTML, CSS, Vanilla JavaScript, SVG, Adobe Illustrator 

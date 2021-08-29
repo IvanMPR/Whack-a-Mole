@@ -34,8 +34,7 @@ It is pretty obvious that inspiration for this project came from
          >crosshair image </a
        >
        etc. Game sounds downloaded from <a href="https://freesound.org/" target="_blank"> here. <a/>
-     </p>
-     <p class="second paragraph">
+     
        Even though this game could be improved by adding
        extra functionality, such as levels, various choices and options for
        user...I rather kept it simple in order to save a valuable time,

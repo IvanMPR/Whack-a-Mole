@@ -2,7 +2,7 @@
 <br/>
 <img src="img/bullets/screenshot.jpg" width="100%">
 <br/>
-Interesting project inspired by 'Whack a Mole' game !
+Interesting <a href="https://ivanmpr.github.io/Whack-a-Mole/">project</a> inspired by 'Whack a Mole' game !
 
 # About the project
 
